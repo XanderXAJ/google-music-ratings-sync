@@ -1,0 +1,4 @@
+/.credentials
+*.txt
+!requirements.txt
+__pycache__
