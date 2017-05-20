@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-First create a `.credentials` file in the same directory as the scripts containing the account's e-mail address, a generated app password, and [a valid `android_id` as specified by Unofficial Google Music API][android_id]:
+Create a `.credentials` file in the same directory as the scripts containing the account's e-mail address, a generated app password, and [a valid `android_id` as specified by Unofficial Google Music API][android_id]:
 
 ```
 [login]
