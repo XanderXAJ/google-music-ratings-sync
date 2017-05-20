@@ -2,6 +2,10 @@
 
 Allows backing up and restoring ratings and play counts for Google Play Music accounts.
 
+Written in Python 3 using [Unofficial Google Music API][gmusicapi].
+
+[gmusicapi]: https://github.com/simon-weber/gmusicapi
+
 ## Installation
 
 Clone this repository then install all requirements:
