@@ -13,10 +13,10 @@ def login_for_library_management():
 
     email = config['login']['email']
     password = config['login']['password']
-    device_id = config['login']['device_id']
+    android_id = config['login']['android_id']
 
     api = Mobileclient()
-    if not api.login(email, password, device_id):
+    if not api.login(email, password, android_id):
         raise RuntimeError('Failed to login')
 
     return api
