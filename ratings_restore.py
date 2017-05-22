@@ -8,6 +8,7 @@ import string
 import getpass # Get a password from standard in in a secure fashion
 import codecs  # Read Unicode from a file
 from gmusicapi import Mobileclient
+from ratings_sync_lib import cli
 
 def main():
     """Executes the restoration"""
@@ -42,18 +43,11 @@ def main():
     ratings_file.close()
     print('Parsed', len(tracks_to_rate), 'tracks with ratings from backup')
 
-    # Log in to Google Play Music
-    print('Logging in to Google Play Music')
-    try:
-        client = login.login_for_library_management()
-    except RuntimeError as error:
-        print(error)
-        sys.exit(1)
-    print('Logged in successfully')
+    api = cli.login()
 
     # Get all tracks
     print('Getting library')
-    gm_library = mc.get_all_songs()
+    gm_library = api.get_all_songs()
     print('Library retrieved:', len(gm_library), "tracks received")
 
 
@@ -97,18 +91,18 @@ def main():
         # Update the rating, if needed
         if 'rating' in ra_track and matched_track['rating'] != ra_track['rating']:
             matched_track['rating'] = ra_track['rating']
-            mc.change_song_metadata(matched_track)
+            api.change_song_metadata(matched_track)
             track_changed = True
 
         # Update the play count, if needed
         if 'playCount' in ra_track and ra_track['playCount'] > 0:
             # We don't set the play count, rather we add plays.
-            # That means we need the difference between the current play count and the target play count,
-            # and we add that.
+            # That means we need the difference between the current play count
+            # and the target play count, then we add that.
             play_count_difference = ra_track['playCount'] - matched_track['playCount']
 
         if play_count_difference > 0:
-            mc.increment_song_playcount(matched_track['id'], plays=play_count_difference)
+            api.increment_song_playcount(matched_track['id'], plays=play_count_difference)
             track_changed = True
 
         if track_changed:
