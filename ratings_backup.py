@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Back up ratings and play counts for a Google Play Music account"""
-import codecs  # Read unicode from a file
 from ratings_sync_lib import cli
 
 def main():
@@ -23,7 +22,7 @@ def main():
 
     # Output tracks
     ratings_file_name = 'downloaded_ratings.txt'
-    ratings_file = codecs.open(ratings_file_name, mode='w', encoding='utf-8')
+    ratings_file = open(ratings_file_name, mode='w', encoding='utf-8')
 
     ratings_file.write('\n'.join(rated_tracks))
 
