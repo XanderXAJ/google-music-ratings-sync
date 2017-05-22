@@ -5,10 +5,7 @@ The ratings file is expected to be in the format:
 title :: artist :: album :: track number :: disc number :: rating
 """
 import sys
-import string
-import getpass # Get a password from standard in in a secure fashion
-import codecs  # Read Unicode from a file
-from gmusicapi import Mobileclient
+from ratings_sync_lib import cli
 
 def main():
     """Executes the library upload"""
@@ -23,7 +20,7 @@ def main():
     ratings_file_name = sys.argv[1]
 
     # We have a valid ratings file, parse it
-    ratings_file = codecs.open(ratings_file_name, mode='r', encoding='utf-8')
+    ratings_file = open(ratings_file_name, mode='r', encoding='utf-8')
     tracks_to_rate = []
 
     for line in ratings_file:
@@ -34,7 +31,8 @@ def main():
         line = line.rstrip('\n')
 
         # Get metadata
-        title, artist, album, track_no, disc_no, rating = string.split(line, ' :: ')
+        print(line)
+        title, artist, album, track_no, disc_no, rating = line.split(' :: ')
         track = {
             'title': title,
             'artist': artist,
@@ -53,18 +51,11 @@ def main():
     ratings_file.close()
     print('Parsed', len(tracks_to_rate), 'tracks with ratings')
 
-    # Log in to Google Play Music
-    print('Logging in to Google Play Music')
-    try:
-        client = login.login_for_library_management()
-    except RuntimeError as error:
-        print(error)
-        sys.exit(1)
-    print('Logged in successfully')
+    api = cli.login()
 
     # Get all tracks
     print('Getting library')
-    gm_library = mc.get_all_songs()
+    gm_library = api.get_all_songs()
     print('Library retrieved:', len(gm_library), "tracks received")
 
     # For each track in ratings file, apply its rating
@@ -115,6 +106,6 @@ def main():
         print(str(track))
 
     if len(tracks_to_update) > 0:
-        mc.change_song_metadata(tracks_to_update)
+        api.change_song_metadata(tracks_to_update)
 
 main()
