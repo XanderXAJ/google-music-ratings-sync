@@ -4,9 +4,6 @@
 A backup can be performed by running ratings_backup.py.
 """
 import sys
-import string
-import getpass # Get a password from standard in in a secure fashion
-import codecs  # Read Unicode from a file
 from gmusicapi import Mobileclient
 from ratings_sync_lib import cli
 
@@ -23,7 +20,7 @@ def main():
     ratings_file_name = sys.argv[1]
 
     # We have a valid ratings file, parse it
-    ratings_file = codecs.open(ratings_file_name, mode='r', encoding='utf-8')
+    ratings_file = open(ratings_file_name, mode='r', encoding='utf-8')
     tracks_to_rate = []
 
     for line in ratings_file:
