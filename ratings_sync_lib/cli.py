@@ -1,6 +1,6 @@
 """Handles command line interface (CLI) rendering and interactions"""
-from . import login as login_api
 import sys
+from . import login as login_api
 
 def login():
     """Log in to Google Play Music"""
