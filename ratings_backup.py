@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Back up ratings and play counts for a Google Play Music account"""
-from ratings_sync_lib import cli
+import ratings_sync_lib.cli as cli
 
 def main():
     """Executes the backup"""

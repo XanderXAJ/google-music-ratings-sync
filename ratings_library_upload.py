@@ -5,7 +5,7 @@ The ratings file is expected to be in the format:
 title :: artist :: album :: track number :: disc number :: rating
 """
 import sys
-from ratings_sync_lib import cli
+import ratings_sync_lib.cli as cli
 
 def main():
     """Executes the library upload"""
