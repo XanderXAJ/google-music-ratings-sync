@@ -4,7 +4,6 @@
 A backup can be performed by running ratings_backup.py.
 """
 import sys
-from gmusicapi import Mobileclient
 import ratings_sync_lib.cli as cli
 
 def main():
