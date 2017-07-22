@@ -1,5 +1,4 @@
-"""Handles logins to Google Play Music
-"""
+"""Handles logins to Google Play Music"""
 import configparser
 from gmusicapi import Mobileclient
 
