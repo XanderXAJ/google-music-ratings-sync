@@ -65,8 +65,6 @@ def main():
 
     for ra_track in tracks_to_rate:
         # Find the track we are looking for
-        # track = next(gm_track for gm_track in gm_library if gm_track['title'] == ra_track['title'])
-        # or (potentially returns multiple tracks)
         matched_tracks = [
             gm_track for gm_track in gm_library if
             gm_track['title'] == ra_track['title']
