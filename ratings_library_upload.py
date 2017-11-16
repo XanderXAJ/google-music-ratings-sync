@@ -45,8 +45,10 @@ def main():
         }
 
         # If number fields are empty, init to zero
-        if track['trackNumber'] == '': track['trackNumber'] = 0
-        if track['discNumber'] == '': track['discNumber'] = 0
+        if track['trackNumber'] == '':
+            track['trackNumber'] = 0
+        if track['discNumber'] == '':
+            track['discNumber'] = 0
 
         tracks_to_rate.append(track)
 
