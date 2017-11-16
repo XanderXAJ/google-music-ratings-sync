@@ -5,7 +5,9 @@ The ratings file is expected to be in the format:
 title :: artist :: album :: track number :: disc number :: rating
 """
 import sys
+
 import ratings_sync_lib.cli as cli
+
 
 def main():
     """Executes the library upload"""
@@ -63,7 +65,7 @@ def main():
 
     for ra_track in tracks_to_rate:
         # Find the track we are looking for
-        #track = next(gm_track for gm_track in gm_library if gm_track['title'] == ra_track['title'])
+        # track = next(gm_track for gm_track in gm_library if gm_track['title'] == ra_track['title'])
         # or (potentially returns multiple tracks)
         matched_tracks = [
             gm_track for gm_track in gm_library if
@@ -107,5 +109,6 @@ def main():
 
     if len(tracks_to_update) > 0:
         api.change_song_metadata(tracks_to_update)
+
 
 main()

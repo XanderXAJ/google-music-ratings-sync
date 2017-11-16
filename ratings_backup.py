@@ -2,6 +2,7 @@
 """Back up ratings and play counts for a Google Play Music account"""
 import ratings_sync_lib.cli as cli
 
+
 def main():
     """Executes the backup"""
 
@@ -29,5 +30,6 @@ def main():
     ratings_file.close()
 
     print(len(rated_tracks), "rated/listened tracks found, written to", ratings_file_name)
+
 
 main()

@@ -4,7 +4,9 @@
 A backup can be performed by running ratings_backup.py.
 """
 import sys
+
 import ratings_sync_lib.cli as cli
+
 
 def main():
     """Executes the restoration"""
@@ -31,7 +33,8 @@ def main():
 
         # If the track is missing any data, discard it
         # Only one of playCount or rating is required
-        if not ('title' in track and 'artist' in track and 'album' in track and ('rating' in track or ('playCount' in track and track['playCount'] > 0))):
+        if not ('title' in track and 'artist' in track and 'album' in track and (
+                'rating' in track or ('playCount' in track and track['playCount'] > 0))):
             continue
 
         tracks_to_rate.append(track)
@@ -46,7 +49,6 @@ def main():
     gm_library = api.get_all_songs()
     print('Library retrieved:', len(gm_library), "tracks received")
 
-
     # For each track in ratings file, apply its rating and/or playCount
 
     # Keep a note of what happens to each track (for reporting)
@@ -57,7 +59,7 @@ def main():
 
     for ra_track in tracks_to_rate:
         # Find the track we are looking for
-        #track = next(gm_track for gm_track in gm_library if gm_track['title'] == ra_track['title'])
+        # track = next(gm_track for gm_track in gm_library if gm_track['title'] == ra_track['title'])
         # or (potentially returns multiple tracks)
         matched_tracks = [
             gm_track for gm_track in gm_library if
@@ -107,7 +109,6 @@ def main():
             tracks_no_change_needed.append(matched_track)
             continue
 
-
     # print(out info about unmatched tracks)
     if len(tracks_no_matches) > 0:
         print('Tracks with no matches:')
@@ -124,5 +125,6 @@ def main():
 
     # Update all tracks on Google Play Music
     print('Updated', len(tracks_updated), 'tracks on Google Play Music')
+
 
 main()
