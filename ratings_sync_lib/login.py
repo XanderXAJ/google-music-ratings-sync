@@ -1,8 +1,10 @@
 """Handles logins to Google Play Music"""
 import configparser
+
 from gmusicapi import Mobileclient
 
 CREDENTIALS_FILE = '.credentials'
+
 
 def login_for_library_management():
     """Logs in to Google Play Music using the .credentials file"""
