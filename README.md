@@ -34,3 +34,7 @@ Once this is done, you can then run the script of your choosing.
 ## TODO
 
 - `Mobileclient.rate_songs()` supports multiple rating multiple songs at once with a single rating. Therefore, bucket songs in to destination ratings (if an update is needed) to reduce the number of API calls required.
+- Several things as a result of this being one of my early Python projects:
+    - Add proper option parsing
+    - Break down code in to smaller chunks
+    - Add proper testing
