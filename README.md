@@ -30,3 +30,7 @@ android_id=1234567890abcdef
 Once this is done, you can then run the script of your choosing.
 
 [android_id]: http://unofficial-google-music-api.readthedocs.io/en/latest/reference/mobileclient.html#gmusicapi.clients.Mobileclient.login
+
+## TODO
+
+- `Mobileclient.rate_songs()` supports multiple rating multiple songs at once with a single rating. Therefore, bucket songs in to destination ratings (if an update is needed) to reduce the number of API calls required.
