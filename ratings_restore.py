@@ -88,8 +88,7 @@ def main():
 
         # Update the rating, if needed
         if 'rating' in ra_track and matched_track['rating'] != ra_track['rating']:
-            matched_track['rating'] = ra_track['rating']
-            api.change_song_metadata(matched_track)
+            api.rate_songs(matched_track, ra_track['rating'])
             track_changed = True
 
         # Update the play count, if needed
