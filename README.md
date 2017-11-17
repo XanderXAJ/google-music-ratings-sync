@@ -38,3 +38,4 @@ Once this is done, you can then run the script of your choosing.
     - Add proper option parsing
     - Break down code in to smaller chunks
     - Add proper testing
+    - Add proper logging with levels
