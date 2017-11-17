@@ -66,8 +66,8 @@ def main():
             gm_track['title'] == ra_track['title']
             and gm_track['artist'] == ra_track['artist']
             and gm_track['album'] == ra_track['album']
-            and gm_track['trackNumber'] == int(ra_track['trackNumber'])
-            and gm_track['discNumber'] == int(ra_track['discNumber'])
+            and gm_track.get('trackNumber', 0) == ra_track.get('trackNumber', 0)
+            and gm_track.get('discNumber', 0) == ra_track.get('discNumber', 0)
         ]
 
         # If there is no track, skip
