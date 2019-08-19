@@ -11,9 +11,7 @@ Written in Python 3 using [Unofficial Google Music API][gmusicapi].
 Clone this repository then install all requirements:
 
 ```bash
-python3 -m virtualenv env
-source env/bin/activate
-pip install -r requirements.txt
+pipenv install
 ```
 
 ## Usage
