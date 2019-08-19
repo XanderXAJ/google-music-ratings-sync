@@ -25,9 +25,12 @@ password=abcdefghijklmnop
 android_id=1234567890abcdef
 ```
 
+Note: If you get a login failure when using the app password, you [may need to disable login captchas for your account as a one-off][disable-captcha].
+
 Once this is done, you can then run the script of your choosing.
 
 [android_id]: http://unofficial-google-music-api.readthedocs.io/en/latest/reference/mobileclient.html#gmusicapi.clients.Mobileclient.login
+[disable-captcha]: https://accounts.google.com/b/0/DisplayUnlockCaptcha
 
 ## TODO
 
