@@ -17,8 +17,8 @@ def write_tracks_repr(filename, tracks):
 
 
 def write_tracks_json(filename, tracks):
-    tracks = [json.dumps(track) for track in tracks]
-    write_tracks(filename, tracks)
+    with open(filename, mode='w', encoding='utf-8') as dest:
+        json.dump(tracks, dest)
 
 
 def main():
